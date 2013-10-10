@@ -1,0 +1,81 @@
+SMOGHEAP Charter
+================
+
+We make games, just for fun.
+
+We start many projects.  Some will be completed, some abandoned, some
+repurposed or absorbed into other works.
+
+Making money off something that should be fun, takes some of the fun out of it.
+Figuring out taxes and fair shares is not fun, so we won't do it.
+
+As for the name...  Lots of Smogheap's projects will spend the majority of
+their lives as vaporware.  Smog is like vapor, but messier and generally found
+out in the open.  And "heap" is a reference to the scrap heap, our common junk-
+drawer repository where diamonds and rough mingle.
+
+Fun doesn't need a lot of rules, but life's resources are finite and each
+contributer has other obligations as well.  So, some guidelines are presented
+here, where a more serious enterprise would have a proper charter.
+
+
+Guidelines
+----------
+
+"What did you make [today|this week]?"
+
+Time is the most precious resource there is.  Doing fun things wastes time, and
+that's the whole point.  Figure out an evening per week or a before-work ritual,
+something you can honestly stick to for spending time making games for fun.
+
+Maybe you doodle something.  Maybe you have a bug that leads to an interesting
+idea.  Maybe you change the colors on something you made a month ago.  The
+substance doesn't matter; finding a rythm of making stuff, however small, does.
+
+Sometimes, the answer is "today I made nothing".  That's not a problem, and
+it's not grounds for discouragement.
+
+
+"You either care enough to port it yourself, or you don't."
+
+Worrying about what platforms or underlying technologies a game should use is
+not fun.  We want to create the things we wish to exist, not to reach the
+broadest demographics or harness the most fascinating libraries.
+
+
+Suggested Workflow
+------------------
+
+A project has a better chance of success if it has a design document, and it
+can't hurt to have some scribbles or concept art.  Even if the document is
+incomplete and subject to change, and your art is a pathetic doodle drawn on a
+napkin saved as a blurry cell phone picture, check it in.  The internet is full
+of half-baked (or far less) ideas, a few more won't hurt.  And if somebody
+steals your idea and makes their own version, well, good, right?
+
+A project ought to these files:
+SMOGHEAP-CHARTER  - A copy of this file.
+COPYING           - The license.  GPLv3 suggested, but, you know, whatever.
+README            - The game's manual/documentation.
+design.txt        - A design document.  Specs for the game.
+work/             - For experiments and big files. (.xcf/.blend/.wav, etc)
+
+
+The Scrap Heap
+--------------
+
+A shared repository, "scrapheap", is a place for idea fragments.  Bits of code,
+images, sound recordings, anything that might be useful for a future game
+should wind up here.  The function that draws funky patterns, the alien
+critter, the sound effect of crunching a pop can.  You made it, but don't know
+(yet) what to do with it.  Don't just leave it on your own computer, put it in
+the scrap heap.  One man's dead-end idea is another man's inspiration.  One
+person's random scribble is another's placeholder game hero.
+
+Likewise, when a "real" game asset is created, toss a copy of that into the
+scrap heap too.  While we all have access and permission to swipe scenery,
+enemies, sounds etc from each other's projects, it can't hurt to keep a nice
+collection of random stuff, ready to be pulled into the next game.
+
+As a matter of practice, consider putting your name into the metadata for all
+assets you create.

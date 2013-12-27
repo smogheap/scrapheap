@@ -1,0 +1,32 @@
+<html>
+ <head>
+  <title>Show Me Your Papers!</title>
+  <style>
+   body {
+    background: grey;
+   }
+   .doc {
+    user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -ms-user-select: none;
+    cursor: -moz-grab;
+    position: absolute;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+   }
+   .doc:active {
+    cursor: -moz-grabbing;
+   }
+   .doc.dragged {
+    box-shadow: 0;
+   }
+  </style>
+  <script src="papers.js"></script>
+ </head>
+ <body>
+ </body>
+</html>

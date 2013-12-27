@@ -1,0 +1,89 @@
+<canvas></canvas>
+<script>
+window.requestAnimationFrame = (window.requestAnimationFrame ||
+								window.mozRequestAnimationFrame ||
+								window.webkitRequestAnimationFrame ||
+								window.msRequestAnimationFrame);
+
+
+var canvas = document.querySelector("canvas");
+var ctx = canvas.getContext("2d");
+
+var state = {
+	flame: 0,
+	shiprot: 0
+};
+
+var TO_RADIANS = Math.PI/180;
+
+
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ctx.fillStyle = "red";
+drawRocket(ctx, 100, 80, 3);
+ctx.fillRect(99, 79, 3, 3); // pivot dot
+
+
+function drawRocket(ctx, x, y, scale, rot) {
+	ctx.save();
+	ctx.translate(x, y);
+	ctx.rotate(rot * TO_RADIANS);
+	ctx.scale(scale || 1, scale || 1);
+	ctx.strokeStyle = "white";
+	ctx.fillStyle = "silver";
+
+	ctx.beginPath();
+
+	ctx.arc(10, -10, 20, 130 * TO_RADIANS, 240 * TO_RADIANS);
+	ctx.arc(-10, -10, 20, 300 * TO_RADIANS, 50 * TO_RADIANS);
+
+	ctx.lineTo(5, 10);
+	ctx.lineTo(-5, 10);
+
+	ctx.arc(10, -10, 20, 130 * TO_RADIANS, 130 * TO_RADIANS);
+
+	ctx.stroke();
+	ctx.fill();
+
+
+	switch(state.flame % 4) {
+	case 0:
+		ctx.strokeStyle = "yellow";
+		ctx.fillStyle = "orange";
+		break;
+	case 2:
+		ctx.strokeStyle = "orange";
+		ctx.fillStyle = "red";
+		break;
+	default:
+		ctx.translate(0, 5.5);
+		ctx.scale(0.5, 0.5);
+		ctx.strokeStyle = "white";
+		ctx.fillStyle = "yellow";
+		break;
+	}
+	ctx.beginPath();
+	ctx.arc(5, 15, 10, 120 * TO_RADIANS, 200 * TO_RADIANS);
+	ctx.arc(-5, 15, 10, 340 * TO_RADIANS, 60 * TO_RADIANS);
+	ctx.stroke();
+	ctx.fill();
+	state.flame++;
+
+	ctx.restore();
+}
+
+
+function render(time) {
+	window.requestAnimationFrame(render);
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	drawRocket(ctx, 100, 80, 2, state.shiprot);
+}
+window.requestAnimationFrame(render);
+
+window.addEventListener("mousemove", function(e) {
+	state.shiprot = e.screenX % 360;
+});
+</script>

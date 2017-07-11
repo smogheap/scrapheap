@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>GAME OVER</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style>
+	  html, body {
+	  background: black;
+	  color: silver;
+	  font-family: sans;
+	  }
+	  span {
+	  position: absolute;
+	  text-align: center;
+	  bottom: 50%;
+	  width: 10%;
+	  font-size: 10vw;
+	  cursor: pointer;
+	  transition:
+	    color linear 0.15s,
+	    text-shadow linear 0.15s,
+        left cubic-bezier(0.3, 0, 0.7, 1) 0.5s,
+        bottom cubic-bezier(0.5, -100, 1, 0) 0.5s;
+	  }
+	  .c1 {
+	  left: 10%;
+	  bottom: 45.1%;
+	  }
+	  .c2 {
+	  left: 20%;
+	  bottom: 45.2%;
+	  }
+	  .c3 {
+	  left: 30%;
+	  bottom: 45.3%;
+	  }
+	  .c4 {
+	  left: 40%;
+	  bottom: 45.4%;
+	  }
+	  .c5 {
+	  left: 50%;
+	  bottom: 45.5%;
+	  }
+	  .c6 {
+	  left: 60%;
+	  bottom: 45.6%;
+	  }
+	  .c7 {
+	  left: 70%;
+	  bottom: 45.7%;
+	  }
+	  .c8 {
+	  left: 80%;
+	  bottom: 45.8%;
+	  }
+	  .lit {
+	  color: white;
+	  text-shadow: 0 0 0.15em blue;
+	  }
+	  .word {
+	  color: white;
+	  text-shadow: 0 0 0.15em gold;
+	  }
+	</style>
+  </head>
+  <body>
+	<span class="c1">G</span>
+	<span class="c2">A</span>
+	<span class="c3">M</span>
+	<span class="c4">E</span>
+	<span class="c5">O</span>
+	<span class="c6">V</span>
+	<span class="c7">E</span>
+	<span class="c8">R</span>
+	<script>
+	  document.onselectstart = function(e) {
+	  return false;
+	  };
+
+	  // find words
+	  var words = [
+	  "ragemove",
+	  "moverage",
+	  "megorave",
+	  "movegear",
+	  "gearmove",
+	  "gavemore",
+	  "remove",
+	  "meager",
+	  "verge",
+	  "omega",
+	  "mover",
+	  "merge",
+	  "grove",
+	  "grave",
+	  "eager",
+	  "agree",
+	  "veer",
+	  "rove",
+	  "roam",
+	  "ream",
+	  "rave",
+	  "rage",
+	  "move",
+	  "more",
+	  "mere",
+	  "mare",
+	  "mage",
+	  "gram",
+	  "gore",
+	  "germ",
+	  "gear",
+	  "gave",
+	  "ever",
+	  "ergo",
+	  "ager"
+	  ];
+	  function find() {
+	  var str = "";
+	  var i;
+	  var pos;
+	  for(i = 1; i <= 8; ++i) { //>
+	  str += document.querySelector(".c" + i).textContent;
+	  }
+	  str = str.toLowerCase();
+	  words.every(function(word) {
+	  pos = str.indexOf(word);
+	  if(pos >= 0) {
+	  //console.log(word);
+	  for(i = pos + 1; i <= pos + word.length; ++i) { //>
+	  document.querySelector(".c" + i).classList.add("word");
+	  }
+	  return false;
+	  }
+	  return true;
+	  });
+	  }
+
+	  // swap
+	  var selected = null;
+	  function click(e) {
+	  var i;
+	  var word = document.querySelectorAll(".word");
+	  if(word && word.length) {
+	  for(i = 0; i < word.length; ++i) { //>
+	  word.item(i).classList.remove("word");
+	  }
+	  }
+	  if(!selected) {
+	  selected = e.target;
+	  selected.classList.add("lit");
+	  } else {
+	  selected.classList.remove("lit");
+	  var temp = e.target.className;
+	  e.target.classList.toggle(selected.className);
+	  e.target.classList.toggle(temp);
+	  selected.classList.toggle(selected.className);
+	  selected.classList.toggle(temp);
+	  selected = null;
+	  find();
+	  }
+	  }
+
+	  // events
+	  var letters = document.querySelectorAll("span");
+	  var i;
+	  for(i = 0; i < letters.length; ++i) { //>
+	  letters.item(i).addEventListener("click", click);
+	  }
+	</script>
+  </body>
+</html>
